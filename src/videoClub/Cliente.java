@@ -12,8 +12,8 @@ public class Cliente {
     public String Cliente(String nombre) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    public String getNombre() {
+     /*MODIFICAR LOS VOID Y LOS STRINGS!!!!*/
+    public void getNombre() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
