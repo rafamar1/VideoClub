@@ -60,7 +60,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="VideoClub" package="" visibility="public" xPosition="456.0" yPosition="463.0">
+    <Class name="VideoClub" package="" visibility="public" xPosition="472.0" yPosition="500.0">
       <Fields>
         <Field name="listaClientes" type="ArrayList" visibility="private"/>
         <Field name="listaPeliculas" type="HashMap" visibility="private"/>
@@ -110,11 +110,11 @@
     </Interface>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="tiene" source="Copias" target="DVD" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
     <IsRelation name="is" source="VideoClub Rentable" target="VideoClub"/>
     <HasRelation name="pertenece" source="VideoClub" target="Cliente" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="navegabilidad*" source="VideoClub" target="Copias" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="tiene" source="Copias" target="DVD" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
     <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="DVD" target="Comparable"/>
     <HasRelation name="tiene" source="VideoClub" target="DVD" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
-    <HasRelation name="navegabilidad*" source="VideoClub" target="Copias" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
   </ClassDiagramRelations>
 </ClassDiagram>
