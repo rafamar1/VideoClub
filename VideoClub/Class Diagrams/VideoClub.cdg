@@ -62,8 +62,8 @@
     </Class>
     <Class name="VideoClub" package="" visibility="public" xPosition="472.0" yPosition="500.0">
       <Fields>
-        <Field name="listaClientes" type="ArrayList" visibility="private"/>
-        <Field name="listaPeliculas" type="HashMap" visibility="private"/>
+        <Field name="listaClientes" type="HashMap" visibility="private"/>
+        <Field name="listaPeliculas" type="TreeSet" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods>
