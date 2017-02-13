@@ -1,6 +1,6 @@
 package videoClub;
 
-public class Copias {
+public class Copia {
 
     private String numCopias;
 }

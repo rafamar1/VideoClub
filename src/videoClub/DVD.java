@@ -2,6 +2,7 @@ package videoClub;
 
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.TreeMap;
 
 public class DVD implements Comparable {
@@ -14,40 +15,65 @@ public class DVD implements Comparable {
 
     private ArrayList listaActores;
 
-    private TreeMap listaDVDs;
-
-    public ArrayList DVD(String titulo, String codigo, String director, ArrayList listaActores) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public TreeMap aniadirDVDaMap(String codigo, TreeMap listaDVDs) {
+    public DVD(String titulo, String codigo, String director, ArrayList listaActores) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public String getCodigo() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return codigo;
     }
 
     public String getTitulo() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return titulo;
     }
 
     public String getDirector() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return director;
     }
 
-    public ArrayList getlistaActores() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public ArrayList getListaActores() {
+        return listaActores;
     }
 
-    public String toString() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 13 * hash + Objects.hashCode(this.titulo);
+        return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DVD other = (DVD) obj;
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        return true;
+    }
+
+    
 
     public boolean equals() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @Override
+    public String toString() {
+        return "Titulo de la Pelicula= " + titulo + "Codigo= " + codigo + "Director= " +
+                                        director + "Lista de Actores=" + listaActores ;
+    }
+
+    
+    
     @Override
     public int CompareTo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
