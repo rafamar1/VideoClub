@@ -43,10 +43,10 @@
         <Method name="getNombre" returnType="String" visibility="public"/>
         <Method name="getPeliculasAlquiladas" returnType="ArrayList" visibility="public"/>
         <Method name="equals" returnType="boolean" visibility="public"/>
-        <Method name="alquila" returnType="DVD" visibility="public">
+        <Method name="alquila" returnType="void" visibility="public">
           <Argument type="DVD" name="p"/>
         </Method>
-        <Method name="devuelve" returnType="String" visibility="public">
+        <Method name="devuelve" returnType="DVD" visibility="public">
           <Argument type="String" name="t"/>
         </Method>
       </Methods>
@@ -71,17 +71,17 @@
           <Argument type="File" name="clientes"/>
           <Argument type="File" name="peliculas"/>
         </Method>
-        <Method name="copias" returnType="String" visibility="public">
+        <Method name="copias" returnType="Set" visibility="public">
           <Argument type="String" name="titulo"/>
         </Method>
-        <Method name="cliente" returnType="String" visibility="public">
+        <Method name="cliente" returnType="Cliente" visibility="public">
           <Argument type="String" name="nombre"/>
         </Method>
-        <Method name="alquila" returnType="String" visibility="public">
+        <Method name="alquila" returnType="void" visibility="public">
           <Argument type="String" name="nombre"/>
           <Argument type="String" name="titulo"/>
         </Method>
-        <Method name="devuelve" returnType="String" visibility="public">
+        <Method name="devuelve" returnType="void" visibility="public">
           <Argument type="String" name="nombre"/>
           <Argument type="String" name="titulo"/>
         </Method>
@@ -90,11 +90,6 @@
           <Argument type="String" name="nombre"/>
         </Method>
       </Methods>
-    </Class>
-    <Class name="VideoClub Rentable" package="" visibility="public" xPosition="907.0" yPosition="486.0">
-      <Fields/>
-      <Constructors/>
-      <Methods/>
     </Class>
     <Class name="Copias" package="" visibility="public" xPosition="56.0" yPosition="569.0">
       <Fields>
@@ -110,10 +105,10 @@
     </Interface>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <IsRelation name="is" source="VideoClub Rentable" target="VideoClub"/>
-    <HasRelation name="pertenece" source="VideoClub" target="Cliente" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
     <HasRelation name="navegabilidad*" source="VideoClub" target="Copias" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
-    <HasRelation name="tiene" source="Copias" target="DVD" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="es de" source="Copias" target="DVD" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="dispara" source="VideoClub" target="VideoclubException" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pertenece" source="VideoClub" target="Cliente" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
     <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="DVD" target="Comparable"/>
     <HasRelation name="tiene" source="VideoClub" target="DVD" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
   </ClassDiagramRelations>
