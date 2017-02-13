@@ -2,32 +2,33 @@ package videoClub;
 
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class VideoClub {
 
-    private ArrayList listaClientes;
+    private HashMap listaClientes;
 
-    private HashMap listaPeliculas;
+    private TreeSet listaPeliculas;
 
-    public File VideoClub(File clientes, File peliculas) {
+    public VideoClub(File clientes, File peliculas) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public String copias(String titulo) {
+    public Set<Copia> copias(String titulo) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public String cliente(String nombre) {
+    public Cliente cliente(String nombre) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public String alquila(String nombre, String titulo) {
+    public void alquila(String nombre, String titulo) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public String devuelve(String nombre, String titulo) {
+    public void devuelve(String nombre, String titulo) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -35,7 +36,7 @@ public class VideoClub {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public String alquiladas(String nombre) {
+    public String alquiladas(String nombreCliente) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
