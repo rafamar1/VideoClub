@@ -32,8 +32,8 @@
     </Class>
     <Class name="Cliente" package="" visibility="public" xPosition="934.0" yPosition="76.0">
       <Fields>
-        <Field name="nombre" type="String" visibility="private"/>
-        <Field name="peliculasAlquiladas" type="ArrayList" visibility="private"/>
+        <Field name="nombreCliente" type="String" visibility="private"/>
+        <Field name="peliculasAlquiladas" type="HashMap" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods>
@@ -67,7 +67,7 @@
       </Fields>
       <Constructors/>
       <Methods>
-        <Method name="VideoClub" returnType="File" visibility="public">
+        <Method name="VideoClub" returnType="void" visibility="public">
           <Argument type="File" name="clientes"/>
           <Argument type="File" name="peliculas"/>
         </Method>
