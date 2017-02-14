@@ -1,5 +1,6 @@
 package videoClub;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import utilidades67.ES.ES;
@@ -15,12 +16,12 @@ import utilidades67.ES.ES;
  */
 public class VideoClubUML {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
         
         pintaMenu(generaListMenuPrincipal());
+        
+        VideoClub miVideoClub = new VideoClub("src/datos/clientes.txt", "src/datos/peliculas.txt");
         /*do {
             menu();
 
