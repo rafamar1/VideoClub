@@ -11,7 +11,7 @@ public class Cliente {
 
     private HashMap <String, ArrayList<Copia>>  peliculasAlquiladas;
 
-    public void Cliente(String nombre) {
+    public Cliente(String nombre) {
        this.nombreCliente = nombre;
        peliculasAlquiladas = new HashMap();
     }
