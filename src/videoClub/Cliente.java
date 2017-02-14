@@ -10,7 +10,9 @@ public class Cliente {
     private String nombreCliente;
 
     private HashMap <String, ArrayList<Copia>>  peliculasAlquiladas;
-
+    
+    private ArrayList<Copia> listaCopias;
+    
     public Cliente(String nombre) {
        this.nombreCliente = nombre;
        peliculasAlquiladas = new HashMap();
@@ -51,12 +53,17 @@ public class Cliente {
     
     
     
-    public void alquila(DVD pelicula) {
-        pelicula.getCodigo();
-        
+    /*public void alquila(DVD pelicula) {
+        listaCopias.add(copia);
+        peliculasAlquiladas.put(pelicula.getCodigo(), listaCopias);
+    }*/
+    public void alquila(Copia copia) {
+        listaCopias.add(copia);
+        peliculasAlquiladas.put(copia.getCodigoPelicula(), listaCopias);
     }
-
+    
     public DVD devuelve(String titulo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //peliculasAlquiladas.get(this).equals(titulo);
+        return null;
     }
 }

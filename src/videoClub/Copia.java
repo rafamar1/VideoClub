@@ -2,26 +2,26 @@ package videoClub;
 
 public class Copia {
 
-    private int numCopia;
+    private int numeroCopia;
     
-    private String codigoPelicula;
+    private String codigo;
 
     public Copia(int numCopia, String codigo) {
-        this.numCopia = numCopia;
-        this.codigoPelicula=codigo;
+        this.numeroCopia = numCopia;
+        this.codigo=codigo;
     }
 
-    public int getNumCopia() {
-        return numCopia;
+    public int getNumeroCopia() {
+        return numeroCopia;
     }
 
     public String getCodigoPelicula() {
-        return codigoPelicula;
+        return codigo;
     }
 
     @Override
     public String toString() {
-        return "Numero de Copia=" + numCopia + "Codigo de Pelicula=" + codigoPelicula;
+        return "Numero de Copia=" + numeroCopia + "Codigo de Pelicula=" + codigo;
     }
     
 }

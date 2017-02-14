@@ -70,7 +70,6 @@ public class DVD implements Comparable {
     }
 
     
-    
     @Override
     public int compareTo(Object objeto) {
         DVD dvd = (DVD) objeto;
