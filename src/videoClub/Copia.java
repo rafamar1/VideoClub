@@ -18,4 +18,10 @@ public class Copia {
     public String getCodigoPelicula() {
         return codigoPelicula;
     }
+
+    @Override
+    public String toString() {
+        return "Numero de Copia=" + numCopia + "Codigo de Pelicula=" + codigoPelicula;
+    }
+    
 }
