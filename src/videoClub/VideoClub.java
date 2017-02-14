@@ -1,7 +1,10 @@
 package videoClub;
 
-
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -12,11 +15,14 @@ public class VideoClub {
     private HashMap listaClientes;
 
     private TreeSet listaPeliculas;
-    
-    private HashMap <String, ArrayList<Copia>>  copiasDisponibles;
 
-    public VideoClub(File clientes, File peliculas) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    private HashMap<String, ArrayList<Copia>> listaCopias;
+
+    public VideoClub(String clientes, String peliculas) throws IOException {
+        this.listaClientes = new HashMap();
+        this.listaPeliculas = new TreeSet();
+        cargaClientesDeFichero(clientes);
+        cargaPeliculasDeFichero(peliculas);
     }
 
     public Set<Copia> copias(String titulo) {
@@ -42,4 +48,63 @@ public class VideoClub {
     public String alquiladas(String nombreCliente) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    private void cargaClientesDeFichero(String nombreFichero) throws FileNotFoundException, IOException {
+
+        FileReader fileReader;
+        BufferedReader bufferedReader = null;
+        String linea;
+        try {
+
+            fileReader = new FileReader(nombreFichero);
+            bufferedReader = new BufferedReader(fileReader);
+
+            while ((linea = bufferedReader.readLine()) != null) {
+
+                Cliente cliente = new Cliente(linea);
+                /*Si el metodo fuera estatico la siguiente*/
+                listaClientes.put(cliente.getNombreCliente(), cliente);
+            }
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error en el fichero -> " + nombreFichero + " no se puede abrir");
+        } finally {
+            bufferedReader.close();
+        }
+
+    }
+
+    private void cargaPeliculasDeFichero(String nombreFichero) throws FileNotFoundException, IOException {
+
+        FileReader fileReader;
+        BufferedReader bufferedReader = null;
+        String linea;
+        try {
+
+            fileReader = new FileReader(nombreFichero);
+            bufferedReader = new BufferedReader(fileReader);
+            DVD pelicula;
+            while ((linea = bufferedReader.readLine()) != null) {
+                /*Split va añadiendo cada separacion por "*" a una nueva posicion del array*/
+                String[] datosPelicula = linea.split("\\*");/*El asterisco es un caracter especial
+                                                                y debe tratarse con la doble "\\"*/
+
+                String[] arrayActores = datosPelicula[3].split(",");
+                ArrayList actores = new ArrayList();
+
+                for (String actor : arrayActores) {
+                    actores.add(actor);
+                }
+                pelicula = new DVD(datosPelicula[0], datosPelicula[1], datosPelicula[2], actores);
+                listaPeliculas.add(pelicula);
+            }
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error en el fichero -> " + nombreFichero + " no se puede abrir");
+        } finally {
+            bufferedReader.close();
+        }
+
+    }
+
 }
