@@ -89,16 +89,22 @@ public class VideoClub {
                 /*Split va añadiendo cada separacion por "*" a una nueva posicion del array*/
                 String[] datosPelicula = linea.split("\\*");/*El asterisco es un caracter especial
                                                                 y debe tratarse con la doble "\\"*/
-
-                String[] arrayActores = datosPelicula[3].split(",");
+                String[]arrayActores = datosPelicula[3].split(",");
                 ArrayList actores = new ArrayList();
-
-                for (String actor : arrayActores) {
-                    actores.add(actor);
-                }
+                    for (String actor : arrayActores) {
+                        actores.add(actor);
+                    }
                 pelicula = new DVD(datosPelicula[0], datosPelicula[1], datosPelicula[2], actores);
                 listaPeliculas.add(pelicula);
-                /*FALTA - CREAR LAS COPIAS A PARTIR DE LA PELICULA, ES DECIR*/
+                int numeroDeCopias = Integer.parseInt(datosPelicula[4]);
+                Copia copiaNumeroX;
+                ArrayList<Copia> copias = new ArrayList();
+                    for (int i = 0; i < numeroDeCopias; i++) {
+                        copiaNumeroX= new Copia(i+1,pelicula.getCodigo());
+                        copias.add(copiaNumeroX);
+                    }
+                
+                listaCopias.put(pelicula.getTitulo(), copias);
             }
 
         } catch (FileNotFoundException ex) {
@@ -108,5 +114,5 @@ public class VideoClub {
         }
 
     }
-
+    
 }
