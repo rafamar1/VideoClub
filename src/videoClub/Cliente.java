@@ -52,7 +52,8 @@ public class Cliente {
     
     
     public void alquila(DVD pelicula) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        pelicula.getCodigo();
+        
     }
 
     public DVD devuelve(String titulo) {

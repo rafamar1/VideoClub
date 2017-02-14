@@ -3,7 +3,6 @@ package videoClub;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.TreeMap;
 
 public class DVD implements Comparable {
 
