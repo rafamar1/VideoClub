@@ -15,9 +15,12 @@ public class DVD implements Comparable {
 
     private ArrayList listaActores;
 
-    public DVD(String titulo, String codigo, String director, ArrayList listaActores) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+   public DVD (String codigo, String titulo, String director, ArrayList listaActores){
+       this.codigo=codigo;
+       this.titulo=titulo;
+       this.director=director;
+       this.listaActores=listaActores;
+   }
 
     public String getCodigo() {
         return codigo;
@@ -61,11 +64,6 @@ public class DVD implements Comparable {
     }
 
     
-
-    public boolean equals() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
     @Override
     public String toString() {
         return "Titulo de la Pelicula= " + titulo + "Codigo= " + codigo + "Director= " +
@@ -75,7 +73,8 @@ public class DVD implements Comparable {
     
     
     @Override
-    public int CompareTo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int compareTo(Object objeto) {
+        DVD dvd = (DVD) objeto;
+        return this.getTitulo().compareToIgnoreCase(dvd.getTitulo());
     }
 }
