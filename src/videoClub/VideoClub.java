@@ -1,7 +1,6 @@
 package videoClub;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -26,6 +25,7 @@ public class VideoClub {
     }
 
     public Set<Copia> copias(String titulo) {
+        /*IDEA - NO SERIA MEJOR QUE DEVOLVIERA UN ARRAYLIST Y NO UN SET??*/
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -62,7 +62,8 @@ public class VideoClub {
             while ((linea = bufferedReader.readLine()) != null) {
 
                 Cliente cliente = new Cliente(linea);
-                /*Si el metodo fuera estatico la siguiente*/
+                /*Si el metodo fuera estatico la siguiente linea daria error, ya que hemos definido
+                  el atributo lineaClientes como no-estatico*/
                 listaClientes.put(cliente.getNombreCliente(), cliente);
             }
 
@@ -97,6 +98,7 @@ public class VideoClub {
                 }
                 pelicula = new DVD(datosPelicula[0], datosPelicula[1], datosPelicula[2], actores);
                 listaPeliculas.add(pelicula);
+                /*FALTA - CREAR LAS COPIAS A PARTIR DE LA PELICULA, ES DECIR*/
             }
 
         } catch (FileNotFoundException ex) {
