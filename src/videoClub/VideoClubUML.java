@@ -1,5 +1,7 @@
 package videoClub;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import utilidades67.ES.ES;
 
 /*
@@ -7,8 +9,6 @@ import utilidades67.ES.ES;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 /**
  *
  * @author RafaMar
@@ -19,58 +19,70 @@ public class VideoClubUML {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int opcion;
-        do {
-            menu();
-                    
-           opcion = ES.leeN("Introduzca una opcion: ");        
         
-        switch (opcion) {
+        pintaMenu(generaListMenuPrincipal());
+        /*do {
+            menu();
+
+            opcion = ES.leeN("Introduzca una opcion: ");
+
+            switch (opcion) {
 
                 case 1:
-                    
+
                     break;
 
                 case 2:
-                    
+
                     break;
 
                 case 3:
-                    
+
                     break;
 
                 case 4:
-                    
+
                     break;
 
                 case 5:
                     break;
 
                 case 6:
-                   
+
                     break;
 
                 case 7:
                     break;
                 default:
-                    
+
                     break;
             }
 
-        } while (opcion != 7);
+        } while (opcion != 7);*/
     }
     
+    private static void pintaMenu(ArrayList<String> menu){
+        
+        int i=1;
+        for (String posicion : menu){
+            System.out.println(i+".- " + posicion);
+            i++;    
+        }
+    }
     
-    private static void menu() {
-        System.out.println("1.- Alta Cliente");
-        System.out.println("2.- Listar Clientes");
-        System.out.println("3.- Listar Peliculas");
-        System.out.println("4.- Listar Peliculas Disponibles");
-        System.out.println("5.- Listar Peliculas Alquiladas");
-        System.out.println("6.- Alquila DVD");
-        System.out.println("7.- Devuelve DVD");
-        System.out.println("8.- Salir");
+    private static ArrayList<String> generaListMenuPrincipal() {
+       
+        ArrayList<String> menuPrincipal = new ArrayList();
+            menuPrincipal.add("Alta Cliente");
+            menuPrincipal.add("Listar Clientes");
+            menuPrincipal.add("Listar Peliculas");
+            menuPrincipal.add("Listar Peliculas Disponibles");
+            menuPrincipal.add("Listar Peliculas Alquiladas");
+            menuPrincipal.add("Alquila DVD");
+            menuPrincipal.add("Devuelve DVD");
+            menuPrincipal.add("Salir");
+
+        return menuPrincipal;
     }
 
 }
-   
