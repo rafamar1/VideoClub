@@ -15,17 +15,18 @@ public class VideoClub {
 
     private TreeSet listaPeliculas;
 
-    private HashMap<String, ArrayList<Copia>> listaCopias;
+    private HashMap<String, ArrayList<Copia>> copiasDisponibles;
 
     public VideoClub(String clientes, String peliculas) throws IOException {
         this.listaClientes = new HashMap();
         this.listaPeliculas = new TreeSet();
+        this.copiasDisponibles = new HashMap();
         cargaClientesDeFichero(clientes);
         cargaPeliculasDeFichero(peliculas);
     }
 
     public Set<Copia> copias(String titulo) {
-        /*IDEA - NO SERIA MEJOR QUE DEVOLVIERA UN ARRAYLIST Y NO UN SET??*/
+        /*IDEA - NO SERIA MEJOR QUE DEVOLVIERA UN ARRAYLIST Y NO UN SET????*/
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -66,13 +67,12 @@ public class VideoClub {
                   el atributo lineaClientes como no-estatico*/
                 listaClientes.put(cliente.getNombreCliente(), cliente);
             }
-
+            
         } catch (FileNotFoundException ex) {
             System.out.println("Error en el fichero -> " + nombreFichero + " no se puede abrir");
         } finally {
             bufferedReader.close();
         }
-
     }
 
     private void cargaPeliculasDeFichero(String nombreFichero) throws FileNotFoundException, IOException {
@@ -103,16 +103,12 @@ public class VideoClub {
                         copiaNumeroX= new Copia(i+1,pelicula.getCodigo());
                         copias.add(copiaNumeroX);
                     }
-                
-                listaCopias.put(pelicula.getTitulo(), copias);
+                copiasDisponibles.put(pelicula.getTitulo(), copias);
             }
-
+            bufferedReader.close();
         } catch (FileNotFoundException ex) {
             System.out.println("Error en el fichero -> " + nombreFichero + " no se puede abrir");
-        } finally {
-            bufferedReader.close();
-        }
-
+        } 
     }
     
 }
