@@ -18,6 +18,7 @@ public class VideoClubUML {
         pintaMenu(generaListMenuPrincipal());
         
         VideoClub miVideoClub = new VideoClub("src/datos/clientes.txt", "src/datos/peliculas.txt");
+        System.out.println(miVideoClub);
         /*do {
             menu();
 
