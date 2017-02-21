@@ -3,12 +3,12 @@ package videoClub;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -42,10 +42,10 @@ public class VideoClub {
     }
 
     @Override
-    /*MEJORAR ESTE MOJONASO!!!!!!!*/
+    /*MEJORAR ESTO!!!!!!!*/
     public String toString() {
-        return "\t\t\t\t/****----VideoClub----****\\\n" + "Lista de Clientes:" + pintaNombreClientes() + 
-                ", listaPeliculas=" + listaPeliculas + ", copiasDisponibles=" + copiasDisponibles + '}';
+        return "\t\t\t\t/****----VideoClub----****\\\n" + "Lista de Clientes:" + pintaNombreClientes()
+                + ", listaPeliculas=" + listaPeliculas + ", copiasDisponibles=" + copiasDisponibles + '}';
     }
 
     public Set<Copia> copias(String titulo) {
@@ -142,8 +142,37 @@ public class VideoClub {
             Map.Entry entry = (Map.Entry) iterador.next();
             cadena += "\n\t- " + entry.getKey();
         }
-
         return cadena + "\n";
     }
-
+    
+    public void escribeSobreFichero(String ficheroPelicula) throws IOException{
+                 
+        FileWriter fileWriter = new FileWriter(ficheroPelicula, false); 
+        PrintWriter printWriter = new PrintWriter(fileWriter);        
+        Iterator iterador = listaPeliculas.iterator();
+        while (iterador.hasNext()) {
+                Map.Entry pelicula = (Map.Entry) iterador.next();
+                DVD peli = (DVD) pelicula.getValue();
+                int numeroCopias = copiasDisponibles.get(peli.getCodigo()).size();
+                printWriter.println();
+                printWriter.print(numeroCopias);
+                printWriter.print(";");
+                printWriter.print(peli.getCodigo());
+                printWriter.print(";");
+                printWriter.print(peli.getTitulo());
+                printWriter.print(";");
+                printWriter.print(peli.getDirector());
+                printWriter.print(";");
+                ArrayList actores = peli.getListaActores();
+                for (Object actor : actores) {
+                    printWriter.print(actor);
+                    printWriter.print("#");
+                }
+                
+            fileWriter.close();
+        }
+    
+    }
 }
+    
+
